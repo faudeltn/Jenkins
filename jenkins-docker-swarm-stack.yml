@@ -1,0 +1,32 @@
+version: '3.7'
+services:
+  jenkins:
+    image: jenkins/jenkins:lts
+    environment:
+      - JAVA_OPTS=-Dhudson.footerURL=http://yallalabs.com
+    ports:
+      - 80:8080
+      - 443:8443
+      - 50000:50000
+    volumes:
+      - jenkins_data:/var/jenkins_home
+    networks:
+      - jenkins-net  
+    deploy:
+      mode: replicated
+      replicas: 1
+      placement:
+        constraints: 
+          - node.role == worker  
+
+volumes:
+  jenkins_data:
+    driver: local
+    driver_opts:
+      type: "none"
+      o: "bind"
+      device: "/jenkinsdata"
+
+networks:
+  jenkins-net:
+    driver: overlay
