@@ -3,7 +3,9 @@ services:
   jenkins:
     image: jenkins/jenkins:lts
     environment:
-      - JAVA_OPTS=-Dhudson.footerURL=http://yallalabs.com
+      #- JAVA_OPTS=-Dhudson.footerURL=http://yallalabs.com
+      - JENKINS_USER=admin
+      - JENKINS_PASS=Password
     ports:
       - 80:8080
       - 443:8443
