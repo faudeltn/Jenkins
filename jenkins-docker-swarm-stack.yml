@@ -11,10 +11,12 @@ services:
     volumes:
       - jenkins_data:/var/jenkins_home
     networks:
-      - jenkins-net  
+      - jenkins-net
     deploy:
       mode: replicated
       replicas: 1
+      restart_policy:
+         condition: on-failure
       placement:
         constraints: 
           - node.role == worker  
