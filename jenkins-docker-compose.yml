@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   jenkins:
-    image: jenkins/jenkins:lts
+    image: yallalabs/jenkins:centos
     environment:
       #- JAVA_OPTS=-Dhudson.footerURL=http://yallalabs.com
       - JENKINS_USER=admin
