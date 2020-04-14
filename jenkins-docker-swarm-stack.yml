@@ -34,4 +34,5 @@ volumes:
 
 networks:
   jenkins-net:
-    driver: overlay
+    #driver: overlay
+    external: true
