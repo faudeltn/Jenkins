@@ -4,6 +4,7 @@ services:
     image: yallalabs/jenkins:centos
     environment:
       #- JAVA_OPTS=-Dhudson.footerURL=http://yallalabs.com
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false -Dhudson.footerURL=http://yallalabs.com -Duser.timezone=Europe/Rome
       - JENKINS_USER=admin
       - JENKINS_PASS=Password
     ports:
